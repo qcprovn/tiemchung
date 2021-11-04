@@ -1,0 +1,15 @@
+{
+  "name": "tiemchung",
+  "version": "1.0.0",
+  "description": "Tiem Chung",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/qcprovn/tiemchung.git",
+  "author": "Nguyen Manh <manh.12g@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^15.3.0"
+  }
+}
