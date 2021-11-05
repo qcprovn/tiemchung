@@ -14,7 +14,7 @@ function createWindow() {
   });
 
   mainWindow.loadURL(
-    "https://docs.google.com/spreadsheets/d/11oet_-97uTrz4mc4E1pIrNpLpXI_d2o1MStWpMyzMAM/edit?usp=sharing"
+    "https://bachngocsach.com/reader/vu-luyen-dien-phong-convert/cqki"
   );
   // mainWindow.loadURL("https://tiemchungcovid19.moh.gov.vn/");
   //   mainWindow.loadURL("https://yte-nghean.vnpthis.vn/")
@@ -22,62 +22,61 @@ function createWindow() {
   //   mainWindow.webContents.on('did-finish-load', function() {
   //     mainWindow.webContents.executeJavaScript(`document.getElementById("tendangnhap").value ="Nan_ttyt_quychau"`);
   //   });
-  
+
   app.on("login", (event, webContents, request, authInfo, cb) =>
-  tryProxyLogin(webContents, event, request, authInfo, cb)
-);
+    tryProxyLogin(webContents, event, request, authInfo, cb)
+  );
 
- /**
- *
- * @param {Electron.webContents} webContents
- * @param {Electron.Event} event
- * @param {Electron.Request} request
- * @param {Electron.AuthInfo} authInfo
- * @param {(username:string,password:string)=>void} cb
- */
-const tryProxyLogin = (webContents, event, request, authInfo, cb) => {
-  try {
-    const contentId = webContents.id;
+  /**
+   *
+   * @param {Electron.webContents} webContents
+   * @param {Electron.Event} event
+   * @param {Electron.Request} request
+   * @param {Electron.AuthInfo} authInfo
+   * @param {(username:string,password:string)=>void} cb
+   */
+  const tryProxyLogin = (webContents, event, request, authInfo, cb) => {
+    try {
+      const contentId = webContents.id;
 
-    const { username, password } = {
-      username: XXXXX,
-      password: XXXXX
-    };
-
-    if (authInfo.isProxy && username && password) {
-
-      //temp solution about this issue
-      //https://github.com/electron/electron/issues/16010
-
-      if (!authInfo.realm) {
-        setTimeout(() => {
-          webContents.reload();
-        }, 500);
-        return;
-      }
-
-      const { country, sessionId } = {
-          country: 'XXXXX',
-          sessionID: 'xxxxxxx-xxxxxxx'
+      const { username, password } = {
+        username: XXXXX,
+        password: XXXXX,
       };
 
-      if (country && sessionId) {
-        event.preventDefault();
-        console.debug(
-          "proxy ready to login",
-          `customer-${username}-cc-${country}-sessid-${sessionId}`
-        );
+      if (authInfo.isProxy && username && password) {
+        //temp solution about this issue
+        //https://github.com/electron/electron/issues/16010
 
-        cb(
-          `customer-${username}-cc-${country}-sessid-${sessionId}-${Date.now()}`,
-          password
-        );
+        if (!authInfo.realm) {
+          setTimeout(() => {
+            webContents.reload();
+          }, 500);
+          return;
+        }
+
+        const { country, sessionId } = {
+          country: "XXXXX",
+          sessionID: "xxxxxxx-xxxxxxx",
+        };
+
+        if (country && sessionId) {
+          event.preventDefault();
+          console.debug(
+            "proxy ready to login",
+            `customer-${username}-cc-${country}-sessid-${sessionId}`
+          );
+
+          cb(
+            `customer-${username}-cc-${country}-sessid-${sessionId}-${Date.now()}`,
+            password
+          );
+        }
       }
+    } catch (error) {
+      console.error(error);
     }
-  } catch (error) {
-    console.error(error);
-  }
-};
+  };
   mainWindow.once("ready-to-show", () => {
     //   mainWindow.webContents.openDevTools();
     mainWindow.maximize();
