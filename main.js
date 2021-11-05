@@ -12,7 +12,10 @@ function createWindow() {
     },
   });
 
-  mainWindow.loadURL("https://tiemchungcovid19.moh.gov.vn/");
+  mainWindow.loadURL(
+    "https://docs.google.com/spreadsheets/d/1eOSJXOo9A3mOxZobR2ecWcCb2rHPs604shfgEwpqmPE/edit#gid=1530158543"
+  );
+  // mainWindow.loadURL("https://tiemchungcovid19.moh.gov.vn/");
   //   mainWindow.loadURL("https://yte-nghean.vnpthis.vn/")
 
   //   mainWindow.webContents.on('did-finish-load', function() {
