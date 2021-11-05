@@ -6,9 +6,10 @@ function createWindow() {
     width: 800,
     height: 600,
     show: false,
-    frame: false,
+    // frame: false,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      partition: "persist:QCPRO", //
     },
   });
 
