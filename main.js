@@ -13,10 +13,7 @@ function createWindow() {
     },
   });
 
-  mainWindow.loadURL(
-    "https://bachngocsach.com/reader/vu-luyen-dien-phong-convert/cqki"
-  );
-  // mainWindow.loadURL("https://tiemchungcovid19.moh.gov.vn/");
+  mainWindow.loadURL("https://tiemchungcovid19.moh.gov.vn/");
   //   mainWindow.loadURL("https://yte-nghean.vnpthis.vn/")
 
   //   mainWindow.webContents.on('did-finish-load', function() {
