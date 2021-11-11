@@ -7,73 +7,22 @@ function createWindow() {
     height: 600,
     show: false,
     // frame: false,
+    fullscreen:true,
+    autoHideMenuBar :true,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
-      partition: "QCPRO", //persist:
+      // preload: path.join(__dirname, "preload.js"),
+      partition: "persist:QCPRO", //
     },
   });
 
-  mainWindow.loadURL("https://tiemchungcovid19.moh.gov.vn/");
+  mainWindow.loadURL("https://trangnguyen.edu.vn/");
+  // mainWindow.loadURL("https://tiemchungcovid19.moh.gov.vn/");
   //   mainWindow.loadURL("https://yte-nghean.vnpthis.vn/")
 
   //   mainWindow.webContents.on('did-finish-load', function() {
   //     mainWindow.webContents.executeJavaScript(`document.getElementById("tendangnhap").value ="Nan_ttyt_quychau"`);
   //   });
 
-  app.on("login", (event, webContents, request, authInfo, cb) =>
-    tryProxyLogin(webContents, event, request, authInfo, cb)
-  );
-
-  /**
-   *
-   * @param {Electron.webContents} webContents
-   * @param {Electron.Event} event
-   * @param {Electron.Request} request
-   * @param {Electron.AuthInfo} authInfo
-   * @param {(username:string,password:string)=>void} cb
-   */
-  const tryProxyLogin = (webContents, event, request, authInfo, cb) => {
-    try {
-      const contentId = webContents.id;
-
-      const { username, password } = {
-        username: XXXXX,
-        password: XXXXX,
-      };
-
-      if (authInfo.isProxy && username && password) {
-        //temp solution about this issue
-        //https://github.com/electron/electron/issues/16010
-
-        if (!authInfo.realm) {
-          setTimeout(() => {
-            webContents.reload();
-          }, 500);
-          return;
-        }
-
-        const { country, sessionId } = {
-          country: "XXXXX",
-          sessionID: "xxxxxxx-xxxxxxx",
-        };
-
-        if (country && sessionId) {
-          event.preventDefault();
-          console.debug(
-            "proxy ready to login",
-            `customer-${username}-cc-${country}-sessid-${sessionId}`
-          );
-
-          cb(
-            `customer-${username}-cc-${country}-sessid-${sessionId}-${Date.now()}`,
-            password
-          );
-        }
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
   mainWindow.once("ready-to-show", () => {
     //   mainWindow.webContents.openDevTools();
     mainWindow.maximize();
