@@ -4,12 +4,14 @@
   "description": "Tiem Chung",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "compile-arm": "electron-builder --arm64"
   },
   "repository": "https://github.com/qcprovn/tiemchung.git",
   "author": "Nguyen Manh <manh.12g@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^15.3.0"
+    "electron": "^15.3.0",
+    "electron-builder": "^22.14.5"
   }
 }

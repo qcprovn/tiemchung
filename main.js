@@ -7,7 +7,7 @@ function createWindow() {
     height: 600,
     show: false,
     // frame: false,
-    fullscreen:true,
+    // fullscreen:true,
     autoHideMenuBar :true,
     webPreferences: {
       // preload: path.join(__dirname, "preload.js"),
@@ -27,6 +27,7 @@ function createWindow() {
     //   mainWindow.webContents.openDevTools();
     mainWindow.maximize();
     mainWindow.show();
+    mainWindow.setFullScreen(true);// .fullscreen=true;
   });
 }
 
