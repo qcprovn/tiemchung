@@ -15,7 +15,8 @@ function createWindow() {
     },
   });
 
-  mainWindow.loadURL("https://trangnguyen.edu.vn/");
+  // mainWindow.loadURL("https://trangnguyen.edu.vn/");
+  mainWindow.loadURL("https://chat.zalo.me/");
   // mainWindow.loadURL("https://tiemchungcovid19.moh.gov.vn/");
   //   mainWindow.loadURL("https://yte-nghean.vnpthis.vn/")
 
